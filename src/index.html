@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EASY EATS</title>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav__logo"><a href="./index.html">Easy Eats</a></div>
+      <ul class="nav__list">
+        <li class="nav__list__item"><a href="#">Menu</a></li>
+        <li class="nav__list__item"><a href="#">Events</a></li>
+        <li class="nav__list__item"><a href="#">Contact</a></li>
+        <li class="nav__list__item"><a href="#booking">Bookings</a></li>
+      </ul>
+    </nav>
+    <section class="hero">
+      <h1 class="hero__heading">Easy Eats</h1>
+      <p class="hero__text">
+        Fresh & delicious food in the town's centre
+      </p>
+      <a href="#" class="btn btn--menu">
+        Discover our menu
+      </a>
+    </section>
+    <section class="booking" id="booking">
+      <h2>Book a table</h2>
+      <form class="form" autocomplete="off">
+        <div class="form__multiple">
+          <div>
+            <input type="text" name="firstname" />
+            <label for="firstname">First Name</label>
+          </div>
+          <div>
+            <input type="text" name="lastname" />
+            <label for="lastname">Last Name</label>
+          </div>
+        </div>
+        <div>
+          <input type="email" name="email" />
+          <label for="email">Email</label>
+        </div>
+        <div>
+          <input type="tel" name="phone" />
+          <label for="phone">Phone</label>
+        </div>
+        <div class="form__multiple">
+          <div>
+            <input type="date" name="date" />
+          </div>
+          <div>
+            <input
+              type="time"
+              name="hour"
+              min="12:00"
+              max="23:00"
+              value="17:00"
+            />
+          </div>
+          <div>
+            <input type="number" name="persons" min="1" />
+            <label for="persons">Number of persons</label>
+          </div>
+        </div>
+
+        <input type="submit" class="btn btn--submit" value="Book table" />
+      </form>
+    </section>
+
+    <!-- Slider main container -->
+    <div class="swiper-container">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <img src="./assets/food1.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/food2.jpg" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <img src="./assets/food3.jpg" alt="" />
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <section class="footer"></section>
+  </body>
+</html>

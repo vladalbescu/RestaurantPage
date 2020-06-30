@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Changa:wght@400&family=Amatic+SC:wght@400;700");
+
+$color1: #96d630;
+$color2: #333333;
+$color3: #8b8d8f;
+$color4: #edf0f5;
+$color5: #ffffff;
+$color6: #ffa500;
+$color7: #d3d3d3;
+$color8: #9999a2;
+
+$font1: "Roboto", sans-serif;
+$font2: "Amatic SC", cursive;
+$font3: "Changa", sans-serif;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  color: $color2;
+  font-family: $font1;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $color4;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+//******* NAVIGATION ********
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 9rem;
+  background-color: $color5;
+  display: flex;
+  padding: 3rem 12vw 2rem 12vw;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  user-select: none;
+
+  &__logo {
+    font-family: $font2;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color1;
+    margin-right: auto;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+
+    &__item {
+      font-family: $font2;
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: inline-block;
+      position: relative;
+      margin: 0 3rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: color 0.2s;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        width: 0%;
+        height: 1px;
+        background-color: $color1;
+        transition: width 0.2s ease;
+      }
+
+      &:hover::before {
+        width: 98%;
+      }
+    }
+  }
+}
+
+//******* HERO ********
+.hero {
+  position: relative;
+  margin-top: 9rem;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid $color3;
+  user-select: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./assets/bg.jpg");
+    filter: contrast(0.8) brightness(0.7);
+    z-index: -1;
+  }
+
+  &__heading {
+    font-size: 9rem;
+    line-height: 1;
+  }
+
+  &__text {
+    color: $color4;
+    font-family: $font3;
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 50rem;
+    margin-top: -0.2rem;
+    margin-bottom: 10rem;
+  }
+}
+//******* BOOKINGS ********
+.booking {
+  padding: 4rem 10rem;
+  text-align: center;
+  max-width: 70rem;
+  margin: 5rem auto;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  background-color: $color5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 2rem;
+
+  & > * {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+  }
+
+  @mixin label-style {
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: $font1;
+    color: $color1;
+    top: -0.2rem;
+  }
+
+  label {
+    position: absolute;
+    top: 1.9rem;
+    left: 0;
+    color: $color3;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-left: 0.7rem;
+    pointer-events: none;
+    transition: all 0.2s ease;
+
+    &.label--focus {
+      @include label-style;
+    }
+  }
+
+  @mixin input-style {
+    color: $color3;
+    font-family: $font1;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  input {
+    border-radius: 3px;
+
+    height: 2.5rem;
+    width: 100%;
+    margin: 1.2rem 0;
+    padding: 0 0.7rem;
+    border: 1px solid $color7;
+
+    @include input-style;
+
+    &::-webkit-datetime-edit {
+      @include label-style;
+      color: $color8;
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color3;
+    }
+
+    &:focus + label {
+      @include label-style;
+    }
+
+    &[type="submit"] {
+      width: min-content;
+      height: auto;
+      margin: 1rem auto;
+      padding: 1rem 2rem;
+      color: $color1;
+      border-color: $color1;
+      font-weight: 400;
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &__multiple {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & > * {
+      flex: 1;
+      position: relative;
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+//******* TYPOGRAPHY ********
+
+h1 {
+  color: $color1;
+  font-family: $font2;
+  font-size: 5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: $color1;
+  font-family: $font2;
+  font-weight: 400;
+  font-size: 4rem;
+}
+
+.btn {
+  padding: 1rem 1.5rem;
+  border: 1px solid $color5;
+  text-transform: uppercase;
+  color: $color5;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: transparent;
+
+  &:hover {
+    border: 1px solid $color1;
+    color: $color1;
+  }
+
+  &:focus,
+  &:active {
+    border: 1px solid $color1;
+    outline: none;
+  }
+}
+
+//******* SWIPER ********
+
+.swiper-container {
+  margin: 5rem auto;
+  width: 90%;
+  text-align: center;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $color1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $color1;
+  }
+
+  img {
+    width: 70rem;
+    height: 30rem;
+    object-fit: cover;
+  }
+}
